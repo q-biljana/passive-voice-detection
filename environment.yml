@@ -1,0 +1,4 @@
+name: passive_voice
+dependencies:
+  - python>=3.4
+  - anaconda
