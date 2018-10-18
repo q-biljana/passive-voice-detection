@@ -6,7 +6,6 @@
 import __future__import division
 import os
 import re
-from bs4 import BeautifulSoup
 import operator
 import nltk
 import json 
@@ -14,52 +13,15 @@ import json
 
 #### List of dictionaries used for 
 """
-KEEP
-	tokens
-		# tokenize sentences into words and punctuation marks
-	data['parts_of_speech']
-		# modified in the following -- but also find verb groups
-		# tag tokens as part-of-speech
-   		# fix symbol and apostrophed verb tags
-		# fix some verbs ending in -ing being counted as nouns
-
-
-	verb_group_count
-	verb_group_stack
-
-		# find verb groups
-	    data['verb_groups'] = [None] * len(tokens)
-	    verb_group_stack = []
-	    verb_group_count = 0
-
+	Define regex 
 """
-# pre-load and pre-compile required variables and methods
-
-# this business right here are the unicode quotation marks 
 quotation_re = re.compile(u'[\u00AB\u00BB\u201C\u201D\u201E\u201F\u2033\u2036\u301D\u301E]')
 apostrophe_re = re.compile(u'[\u02BC\u2019\u2032]')
 punct_error_re = re.compile('^(["\]\)\}]+)(?:[ \n]|$)')
 ellipsis_re = re.compile('\.\.\.["\(\)\[\]\{\} ] [A-Z]')
 newline_re = re.compile('\n["\(\[\{ ]*[A-Z]')
 empty_sent_re = re.compile('^[\n ]*$')
-nominalization_re = re.compile('(?:ion|ions|ism|isms|ty|ties|ment|ments|ness|nesses|ance|ances|ence|ences)$')
-stopset = set(nltk.corpus.stopwords.words('english'))
-stemmer = nltk.PorterStemmer()
 tagger = nltk.data.load(nltk.tag._POS_TAGGER)
-lemmatizer = nltk.WordNetLemmatizer()
-dict_cmu = nltk.corpus.cmudict.dict()
-dict_wn = nltk.corpus.wordnet
-
-
-with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'corpora/fillers')) as f:
-    dict_fillers = f.read().splitlines()
-with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'corpora/irregular-stems')) as f:
-    dict_irregular_stems_lines = f.read().splitlines()
-    dict_irregular_stems_draft = [line.split(',') for line in dict_irregular_stems_lines]
-    dict_irregular_stems = {}
-    for stem_old, stem_new in dict_irregular_stems_draft:
-        dict_irregular_stems[stem_old] = stem_new
-
 
 
 def analyze_text(json_content):
@@ -69,11 +31,6 @@ def analyze_text(json_content):
     metrics = dict()
 
     ### parse text/json string
-
-    # I don't think I wanna use Beautiful soup at all 
-    # soup = BeautifulSoup(html)
-    # original_text = soup.get_text().rstrip('\n')
-
     original_text = json.loads(str(json_content))
 
     # standardize all quotation marks
@@ -100,7 +57,7 @@ def analyze_text(json_content):
             idx = ellipsis_case.start() + 3
         sents_draft_2.append(sent[idx:])
 
-    # separate sentences at newline characters correctly
+    
     sents = []
     for sent in sents_draft_2:
         idx = 0
@@ -115,24 +72,8 @@ def analyze_text(json_content):
     # tokenize sentences into words and punctuation marks
     sents_tokens = [nltk.word_tokenize(sent) for sent in sents]
     tokens = [token for sent in sents_tokens for token in sent]
-    data['values'] = tokens
     data['sentence_numbers'] = [(idx+1) for idx, sent in enumerate(sents_tokens) for token in sent]
 
-    # find words
-    sents_words = [[token.lower() for token in sent if (token[0].isalnum() or (token in
-                    ["'m", "'re", "'ve", "'d", "'ll"]))] for sent in sents_tokens]
-    words = []
-    word2token_map = []
-    for idx, token in enumerate(tokens):
-        if token[0].isalnum() or (token in ["'m", "'re", "'ve", "'d", "'ll"]):
-            words.append(token.lower())
-            word2token_map.append(idx)
-
-    # find word stems
-    stems = [stem_better(word) for word in words]
-    data['stems'] = [None] * len(tokens)
-    for idx, stem in enumerate(stems):
-        data['stems'][word2token_map[idx]] = stem
 
     # tag tokens as part-of-speech
     sents_tokens_tags = tagger.batch_tag(sents_tokens)
@@ -181,18 +122,6 @@ def analyze_text(json_content):
                     data['verb_groups'][i] = verb_group_count
             verb_group_stack = []
 
-    # find expected word frequencies
-    data['expected_word_frequencies'] = [None] * len(tokens)
-    unmatched_stems = []
-    for idx_word, stem in enumerate(stems):
-        idx = word2token_map[idx_word]
-        if stem in dict_word_freq.keys():
-            data['expected_word_frequencies'][idx] = dict_word_freq[stem]
-        else:
-            data['expected_word_frequencies'][idx] = 0
-            unmatched_stems.append(stem)
-
-
 
     ### compute metrics on parsed data
 
@@ -201,11 +130,6 @@ def analyze_text(json_content):
 
     # count number of words
     metrics['word_count'] = len(words)
-
-
-    # count number of characters in the whole text
-    metrics['character_count'] = len(text)
-
 
     # find and count passive voice cases
     data['passive_voice_cases'] = [None] * len(tokens)
