@@ -24,6 +24,11 @@ empty_sent_re = re.compile('^[\n ]*$')
 #tagger = nltk.data.load(nltk.tag.POS_TAGGER)
 #nltk.download('averaged_perceptron_tagger')
 
+def parse_json(jsn):
+	words = jsn['segments'][0]['segment']
+	segment_id = jsn['segments'][0]["segment_id"]
+	return words, segment_id
+
 def analyze_text(json_content):
 
     # create data and metrics dictionaries
@@ -32,6 +37,7 @@ def analyze_text(json_content):
 
     ### parse text/json string
     original_text = json.loads(str(json_content))
+    original_text, segment_id = parse_json(original_text)
 
     # standardize all quotation marks
     text = quotation_re.sub('"', original_text)
@@ -74,11 +80,12 @@ def analyze_text(json_content):
     tokens = [token for sent in sents_tokens for token in sent]
     data['sentence_numbers'] = [(idx+1) for idx, sent in enumerate(sents_tokens) for token in sent]
 
-
     # tag tokens as part-of-speech
     #sents_tokens_tags = tagger.batch_tag(sents_tokens)
-    sents_tokens_tags = nltk.pos_tag(sents_tokens)
-    data['parts_of_speech'] = [pos for sent in sents_tokens_tags for (token, pos) in sent]
+    print (sents_tokens[0])
+    sents_tokens_tags = nltk.pos_tag(sents_tokens[0])
+    # data['parts_of_speech'] = [pos for sent in sents_tokens_tags for (token, pos) in sent]
+    data['parts_of_speech'] = [pos for token, pos in sents_tokens_tags]
 
     # fix symbol and apostrophed verb tags
     for idx, token in enumerate(tokens):
@@ -125,13 +132,11 @@ def analyze_text(json_content):
 
 
     ### compute metrics on parsed data
-
     # count number of sentences
     metrics['sentence_count'] = len(sents)
 
-    # count number of words
-    metrics['word_count'] = len(words)
-
+    print("\t verb group stack", verb_group_stack)
+    print(data['verb_groups'])
     # find and count passive voice cases
     data['passive_voice_cases'] = [None] * len(tokens)
     passive_voice_count = 0
