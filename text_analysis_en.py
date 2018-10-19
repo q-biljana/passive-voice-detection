@@ -3,7 +3,7 @@
 # this file contains the business logic for passive_app.py 
 # 
 #
-import __future__import division
+from __future__ import division
 import os
 import re
 import operator
@@ -21,8 +21,8 @@ punct_error_re = re.compile('^(["\]\)\}]+)(?:[ \n]|$)')
 ellipsis_re = re.compile('\.\.\.["\(\)\[\]\{\} ] [A-Z]')
 newline_re = re.compile('\n["\(\[\{ ]*[A-Z]')
 empty_sent_re = re.compile('^[\n ]*$')
-tagger = nltk.data.load(nltk.tag._POS_TAGGER)
-
+#tagger = nltk.data.load(nltk.tag.POS_TAGGER)
+#nltk.download('averaged_perceptron_tagger')
 
 def analyze_text(json_content):
 
@@ -76,7 +76,8 @@ def analyze_text(json_content):
 
 
     # tag tokens as part-of-speech
-    sents_tokens_tags = tagger.batch_tag(sents_tokens)
+    #sents_tokens_tags = tagger.batch_tag(sents_tokens)
+    sents_tokens_tags = nltk.pos_tag(sents_tokens)
     data['parts_of_speech'] = [pos for sent in sents_tokens_tags for (token, pos) in sent]
 
     # fix symbol and apostrophed verb tags

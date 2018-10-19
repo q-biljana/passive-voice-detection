@@ -1,2 +1,4 @@
-Flask=
+Flask=1.0 #check
+nltk=3.3
+
 
