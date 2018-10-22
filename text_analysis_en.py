@@ -2,14 +2,12 @@
 # Text_analysis.py
 # this file contains the business logic for passive_app.py 
 # 
-#
 from __future__ import division
 import os
 import re
 import operator
 import nltk
 import json 
-
 
 #### List of dictionaries used for 
 """
@@ -30,7 +28,6 @@ def parse_json(jsn):
 	return words, segment_id
 
 def analyze_text(json_content):
-
     # create data and metrics dictionaries
     data = dict()
     metrics = dict()
@@ -63,7 +60,6 @@ def analyze_text(json_content):
             idx = ellipsis_case.start() + 3
         sents_draft_2.append(sent[idx:])
 
-    
     sents = []
     for sent in sents_draft_2:
         idx = 0
@@ -81,8 +77,6 @@ def analyze_text(json_content):
     data['sentence_numbers'] = [(idx+1) for idx, sent in enumerate(sents_tokens) for token in sent]
 
     # tag tokens as part-of-speech
-    #sents_tokens_tags = tagger.batch_tag(sents_tokens)
-    print (sents_tokens[0])
     sents_tokens_tags = nltk.pos_tag(sents_tokens[0])
     # data['parts_of_speech'] = [pos for sent in sents_tokens_tags for (token, pos) in sent]
     data['parts_of_speech'] = [pos for token, pos in sents_tokens_tags]
@@ -135,8 +129,6 @@ def analyze_text(json_content):
     # count number of sentences
     metrics['sentence_count'] = len(sents)
 
-    print("\t verb group stack", verb_group_stack)
-    print(data['verb_groups'])
     # find and count passive voice cases
     data['passive_voice_cases'] = [None] * len(tokens)
     passive_voice_count = 0
@@ -156,3 +148,4 @@ def analyze_text(json_content):
 
 
     return original_text, data, metrics
+    
