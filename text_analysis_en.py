@@ -33,7 +33,7 @@ def analyze_text(json_content):
     metrics = dict()
 
     ### parse text/json string
-    original_text = json.loads(str(json_content))
+    original_text = json.loads(json.dumps(json_content))
     original_text, segment_id = parse_json(original_text)
 
     # standardize all quotation marks
@@ -148,4 +148,3 @@ def analyze_text(json_content):
 
 
     return original_text, data, metrics
-    
