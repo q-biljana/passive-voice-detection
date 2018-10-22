@@ -1,4 +1,10 @@
+Click==7.0
 Flask=1.0 #check
 nltk=3.3
+itsdangerous==0.24
+Jinja2==2.10
+MarkupSafe==1.0
+Werkzeug==0.14.1
+
 
 
