@@ -22,19 +22,14 @@ empty_sent_re = re.compile('^[\n ]*$')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 
-def parse_json(jsn, elem):
-	words = jsn['segments'][elem]['segment']
-	segment_id = jsn['segments'][elem]["segment_id"]
-	return words, segment_id
 
-def analyze_text(json_content, elem):
+def analyze_text(json_content):
     # create data and metrics dictionaries
     data = dict()
     metrics = dict()
 
     ### parse text/json string
     original_text = json.loads(json.dumps(json_content))
-    original_text, segment_id = parse_json(original_text, elem)
 
     # standardize all quotation marks
     text = quotation_re.sub('"', original_text)

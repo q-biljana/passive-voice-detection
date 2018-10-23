@@ -15,13 +15,25 @@ def loc_of_passive(data):
 			passive_loc.append(None)
 	return passive_loc 
 
-def check_passive(input_str, elem):
-	original_txt, data, metrics = analyze_text(input_str,elem)
+def check_passive(input_str):
+	original_txt, data, metrics = analyze_text(input_str)
 	passive_loc = loc_of_passive(data)
 	if not any(passive_loc):
-		return "no passive voice in text", None	
+		return "no passive voice in text"
 	else:
 		return "passive voice at location: ", passive_loc 
+
+def find(key, dictionary):
+    for k, v in dictionary.items():
+        if k == key:
+            yield v
+        elif isinstance(v, dict):
+            for result in find(key, v):
+                yield result
+        elif isinstance(v, list):
+            for d in v:
+                for result in find(key, d):
+                    yield result
 
 
 @app.route('/passive_voice/v1/<string:lang_id>', methods=['POST'])
@@ -30,22 +42,15 @@ def passive_api(lang_id):
 	if lang_id == 'en':
 		request_body = request.get_json()
 
-		if 'segments' in request_body:
 
-			store_response = []
-			for a, item in enumerate(request_body['segments']):
-				segment = request_body['segments']
-				segment_id = request_body['segments'][a]['segment_id']
-				text = request_body['segments'][a]['segment']
-				test_passive, passive_loc = check_passive(request_body, a)		
-				if passive_loc is not None: 
-					store_response.append( { "passive_voice_location": passive_loc, "words" :text })
-				else:
-					store_response.append({"passive_result": test_passive, "words" :text } )
-		else:
-			abort(500)
+		print(request_body)
+		store_text = list(find('text', request_body))
+		print(store_text)
+		print (type(store_text[0]))
+		store_response = [check_passive(a) for a in store_text]
 
-		return jsonify(store_response) 
+		print (store_response)
+		return jsonify(store_response)
 
 	else:
 		return "Language not supported"
