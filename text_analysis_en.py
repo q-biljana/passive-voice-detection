@@ -21,8 +21,6 @@ newline_re = re.compile('\n["\(\[\{ ]*[A-Z]')
 empty_sent_re = re.compile('^[\n ]*$')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
-#tagger = nltk.data.load(nltk.tag.POS_TAGGER)
-#nltk.download('averaged_perceptron_tagger')
 
 def parse_json(jsn, elem):
 	words = jsn['segments'][elem]['segment']
