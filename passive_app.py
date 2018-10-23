@@ -42,11 +42,17 @@ def passive_api(lang_id):
 					store_response.append( { "passive_voice_location": passive_loc, "words" :text })
 				else:
 					store_response.append({"passive_result": test_passive, "words" :text } )
+		else:
+			abort(500)
 
 		return jsonify(store_response) 
 
 	else:
 		return "Language not supported"
+
+@app.errorhandler(500)
+def internal_error(error):
+	return "500 error; bad request"
 
 @app.errorhandler(405)
 def not_found(error):
