@@ -5,20 +5,22 @@ routing functions
 
 from flask import Flask, request, jsonify, make_response
 import json 
-from app.models import check_passive, find
+from app.models import check_passive, find_text, find_segment_id
 
 app = Flask(__name__)
 
 @app.route('/passive_voice/v1/<string:lang_id>', methods=['POST'])
 def passive_api(lang_id):
 
-
-	if lang_id == 'en':
+	if lang_id.find("en-") >=0 :
 		request_body = request.get_json()
-		store_text = list(find("text", request_body))
 
+		store_text = list(find_text("text", request_body))
+		store_id = find_segment_id(request_body)
 		store_response = [check_passive(a) for a in store_text]
-		return jsonify(store_response)
+
+		resp_dict = dict(zip(store_id, store_response))
+		return jsonify(resp_dict) 
 	else:
 		return "Language not supported"
 
