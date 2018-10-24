@@ -1,6 +1,6 @@
 #
 # Text_analysis.py
-# this file contains the business logic for passive_app.py 
+# this file contains the NLP libraries for English, language 
 # 
 from __future__ import division
 import os
@@ -11,7 +11,7 @@ import json
 
 #### List of dictionaries used for 
 """
-	Define regex 
+	Define regex objects which clean the text for analysis by nltk  
 """
 quotation_re = re.compile(u'[\u00AB\u00BB\u201C\u201D\u201E\u201F\u2033\u2036\u301D\u301E]')
 apostrophe_re = re.compile(u'[\u02BC\u2019\u2032]')
@@ -21,6 +21,7 @@ newline_re = re.compile('\n["\(\[\{ ]*[A-Z]')
 empty_sent_re = re.compile('^[\n ]*$')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
+
 
 
 def analyze_text(json_content):

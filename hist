@@ -1,0 +1,502 @@
+  268  docker images ls
+  269  ps
+  270  pwd
+  271  docker build ls
+  272  ls
+  273  pwd
+  274  cd ../flask_app_html/
+  275  ls
+  276  docker build -t flaskhtml:v1 .
+  277  vi requirements.txt 
+  278  docker run -d -p 5000:5000 flask
+  279  vi Dockerfile 
+  280  ls
+  281  pwd
+  282  cd ../
+  283  ls
+  284  cd flask_app_restAPI/
+  285  ls
+  286  vi app
+  287  vi app/app.py 
+  288  ls
+  289  cd app/
+  290  ls
+  291  ls -a
+  292  pwd
+  293  cd ..
+  294  ls
+  295  more README.md 
+  296  cd flask_app_restAPI/
+  297  ls
+  298  cd Desktop/code-py/
+  299  ls
+  300  more flask-demo.py 
+  301  pwd
+  302  ls
+  303  ls -a
+  304  cd flask-app/
+  305  ls
+  306  ls -a
+  307  ls
+  308  more README.md 
+  309  qq
+  310  clear
+  311  cd ..
+  312  s
+  313  l.s
+  314  ls
+  315  cd ..
+  316  ls
+  317  cd deepshell
+  318  ls
+  319  more run.sh 
+  320  more config.yaml 
+  321  more run.sh 
+  322  more server.py 
+  323  clera
+  324  clear
+  325  ls
+  326  more readme.md 
+  327  more readme.md 
+  328  docker run -d -p 5000:5000 ls
+  329  history >hiist
+  330  vi hiist 
+  331  ls
+  332  rm hiist 
+  333  pwd
+  334   ls
+  335  pwd
+  336  cd ../
+  337  ls
+  338  cd flask_app_html/
+  339  ls
+  340  more Dockerfile 
+  341   docker build -t flask_rest:v1 .
+  342  more Dockerfile 
+  343   docker run -d -p 9000:9000 flask_rest:v1
+  344  ls
+  345  ls
+  346  pwd
+  347  ls
+  348  cd ../flask_app_restAPI/
+  349  ls
+  350  cd app
+  351  ls
+  352  rm *
+  353  ls
+  354  cd ../
+  355  ls
+  356  mv app .. 
+  357  ls
+  358  ls
+  359  more Dockerfile 
+  360  ls
+  361  docker build . 
+  362  docker build -t ds:v1 
+  363  docker build -t ds:v1  .
+  364  docker run -p 5000:5000 ds:v1
+  365  docker run -p 500:500 ds:v1
+  366  docker run -p 500:500 ds:v1
+  367  e
+  368  vi readme.md 
+  369  ls
+  370  cd Desktop/
+  371  ls
+  372  cd deepshell
+  373  ls
+  374  more readme.md 
+  375  :q
+  376  ls
+  377  more Dockerfile 
+  378  pwd
+  379  ls
+  380  grep "task" *
+  381  grep "task" */*
+  382  grep "task" data.py 
+  383  grep "data" data.py
+  384  ls
+  385  clear
+  386  more Dockerfile 
+  387  ls
+  388  cd /Users/biljanarolih/anaconda3/lib/python3.6/site-packages/nltk/
+  389  ls
+  390  vi tag/api.py 
+  391  cd tag
+  392  ls
+  393  vi api.py 
+  394  cd /Users/biljanarolih/anaconda3/lib/python3.6/site-packages/nltk/
+  395  ls
+  396  cd tag
+  397  vi api.py 
+  398  ls
+  399  /Users/biljanarolih/Desktop/docs/repos/passive-voice-detection
+  400  cd /Users/biljanarolih/Desktop/docs/repos/passive-voice-detection
+  401  ls
+  402  ls -a
+  403  vi .gitignore 
+  404  ls
+  405  python passive_app.py 
+  406  python passive_app.py 
+  407  python passive_app.py 
+  408  python passive_app.py 
+  409  python passive_app.py 
+  410  clear
+  411  clear
+  412  python passive_app.py 
+  413  python passive_app.py 
+  414  python passive_app.py 
+  415  python passive_app.py 
+  416  python passive_app.py 
+  417  clear
+  418  clear
+  419  python passive_app.py 
+  420  ls
+  421  more .gitignore 
+  422  mkdir bb_version
+  423  ls
+  424  cp text_analysis_en.py bb_version/
+  425  git status
+  426  git status
+  427  clear
+  428  python passive_app.py 
+  429  python passive_app.py 
+  430  python passive_app.py 
+  431  python passive_app.py 
+  432  python passive_app.py 
+  433  python passive_app.py 
+  434  python passive_app.py 
+  435  python passive_app.py 
+  436  python passive_app.py 
+  437  clear
+  438  clear
+  439  python passive_app.py 
+  440  python passive_app.py 
+  441  python passive_app.py 
+  442  python passive_app.py 
+  443  python passive_app.py 
+  444  python passive_app.py 
+  445  python passive_app.py 
+  446  python passive_app.py 
+  447  python passive_app.py 
+  448   curl -i http://localhost:5000/passive_voice/v1/<string:lang>
+  449  curl -i http://localhost:5000/passive_voice/v1/<string:lang>
+  450  python passive_app.py 
+  451  python passive_app.py 
+  452  python passive_app.py 
+  453  python passive_app.py 
+  454  python passive_app.py 
+  455  python passive_app.py 
+  456  python passive_app.py 
+  457  python passive_app.py 
+  458  python passive_app.py 
+  459  python passive_app.py 
+  460  python passive_app.py 
+  461  python passive_app.py 
+  462  python passive_app.py 
+  463  python passive_app.py 
+  464  python passive_app.py 
+  465  python passive_app.py 
+  466  python passive_app.py 
+  467  python passive_app.py 
+  468  python passive_app.py 
+  469  https://www.youtube.com/watch?v=kvux1SiRIJQ
+  470  python passive_app.py 
+  471  python passive_app.py 
+  472  python passive_app.py 
+  473  python passive_app.py 
+  474  python passive_app.py 
+  475  python passive_app.py 
+  476  python passive_app.py 
+  477  python passive_app.py 
+  478  python passive_app.py 
+  479  python passive_app.py 
+  480  python passive_app.py 
+  481  
+  482  python passive_app.py 
+  483  python passive_app.py 
+  484  clear
+  485  python passive_app.py 
+  486  python passive_app.py 
+  487  clear
+  488  clear
+  489  python passive_app.py 
+  490  clear
+  491  python passive_app.py 
+  492  python passive_app.py 
+  493  clear
+  494  python passive_app.py 
+  495  python passive_app.py 
+  496  clear
+  497  python passive_app.py 
+  498  python passive_app.py 
+  499  python passive_app.py 
+  500  python passive_app.py 
+  501  python passive_app.py 
+  502  python passive_app.py 
+  503  python passive_app.py 
+  504  python passive_app.py 
+  505  python passive_app.py 
+  506  python passive_app.py 
+  507  python passive_app.py 
+  508  python passive_app.py 
+  509  python passive_app.py 
+  510  python passive_app.py 
+  511  python passive_app.py 
+  512  python passive_app.py 
+  513  python passive_app.py 
+  514  python passive_app.py 
+  515  python passive_app.py 
+  516  python passive_app.py 
+  517  python passive_app.py 
+  518  python passive_app.py 
+  519  python passive_app.py 
+  520  python passive_app.py 
+  521  python passive_app.py 
+  522  python passive_app.py 
+  523  python passive_app.py 
+  524  python passive_app.py 
+  525  python passive_app.py 
+  526  python passive_app.py 
+  527  python passive_app.py 
+  528  python passive_app.py 
+  529  python passive_app.py 
+  530  python passive_app.py 
+  531  python passive_app.py 
+  532  python passive_app.py 
+  533  python passive_app.py 
+  534  python passive_app.py 
+  535  python passive_app.py 
+  536  python passive_app.py 
+  537  python passive_app.py 
+  538  python passive_app.py 
+  539  python passive_app.py 
+  540  python passive_app.py 
+  541  python passive_app.py 
+  542  python passive_app.py 
+  543  python passive_app.py 
+  544  python passive_app.py 
+  545  python passive_app.py 
+  546  python passive_app.py 
+  547  python passive_app.py 
+  548  python passive_app.py 
+  549  python passive_app.py 
+  550  python passive_app.py 
+  551  clera
+  552  clear
+  553  ls
+  554  clear
+  555  ll
+  556  docker build -t passive:v1
+  557  docker build -t passive_app:v1
+  558  docker build -t passive_app:v1 .
+  559  vi requirements.txt 
+  560  docker build -t passive_app:v1 .
+  561  docker ls
+  562  cler
+  563  clear
+  564  docker container ls
+  565  docker image ps
+  566  docker ps image
+  567  clear
+  568  docker ps -a
+  569  clear
+  570  docker images
+  571  docker rmi 508a9e300cac
+  572  docker rmi -f 508a9e300cac
+  573  docker images
+  574  docker run -d -p 9000:9000 passive_app:v1
+  575  docker logs
+  576  history > hist
+  577  vi hist 
+  578  rm hist
+  579  clear
+  580  docker logs 
+  581  docks ps 
+  582  docker ps
+  583  docker logs 6d9eb32ffc7f
+  584  docker logs 6d9eb32ffc7f
+  585  docker imagees
+  586  docker images
+  587  docker rmi -f 022469c48aba
+  588  clear
+  589  ls
+  590  docker ps
+  591  docker kill passive_app:v1
+  592  docker kill 6d9eb32ffc7f
+  593  docker ps
+  594  vi Dockerfile 
+  595  clear
+  596  ls
+  597  vi environment.yml 
+  598  vi passive_app.py 
+  599  vi text_analysis_en.py 
+  600  ls
+  601  docker run -d -p 5000:5000 passive_app:v1
+  602  docker ps
+  603  docker images
+  604  docker logs
+  605  docker logs passive_app:v1
+  606  docker logs f6e6ec279e0c
+  607  clear
+  608  ls
+  609  dockker images
+  610  docker images
+  611  docker rmi -f 022469c48aba
+  612  docker kill f6e6ec279e0c
+  613  docker kill f6e6ec279e0c
+  614  docker rmi -f 022469c48aba
+  615  clear
+  616  docker build -t passive_app:v2 .
+  617  docker run -d -p 5000:5000 passive_app:v2
+  618  docker ps
+  619  docker logs 7c15a2630054
+  620  docker logs 7c15a2630054
+  621  docker images
+  622  docker kill nltk.download('averaged_perceptron_tagger')
+  623  docker ps
+  624  docker kill 7c15a2630054
+  625  docker rmi -f 220747224985
+  626  as-MBP:passive-voice-detection biljanarolih$ docker images
+  627  clear
+  628  docker ps
+  629  docker build -t passive_app:v3 .
+  630  docker ps
+  631  docker run -d -p 5000:5000 passive_app:v3
+  632  docker ps
+  633  docker logs 90e9e040d860
+  634  docker kill 90e9e040d860
+  635  docker images
+  636  docker rmi -f 11739f5cbf8d
+  637  docker build -t passive_app:v4 .
+  638  docker run -d -p 5000:5000 passive_app:v4
+  639  docker ps
+  640  docker logs 546ff1503cc3
+  641    
+  642  docker kill
+  643  docker kill 546ff1503cc3
+  644  docker ps
+  645  docker images
+  646  docker rmi -f 8b1cb2ade2ef
+  647  docker build -t passive_app:v5 .
+  648  docker run -d -p 5000:5000 passive_app:v5
+  649  docker ps
+  650  ebe227753917
+  651  docker logs ebe227753917
+  652  kill ebe227753917
+  653  docker kill ebe227753917
+  654  docker ps
+  655  docker images
+  656  docker rmi -f 7ed72cb9a3b4
+  657  ls
+  658  docker build -t passive_app:v6 . 
+  659  docker run -d -p 5000:5000 passive_app:v6
+  660  docker ps
+  661  docker ps > test
+  662  ls
+  663  more test 
+  664   -n -e 's/^.test \/\1/p'
+  665  sed -n -e 's/^.test \/\1/p'
+  666  sed -n -e 's/^.test \/\2/p'
+  667  sed -n -e 's/^.test \/p'
+  668  awk -F "\"" '{print $2}' ./test
+  669  test
+  670  more test 
+  671  awk -F "\"" '{print $2}' ./test
+  672  awk -F "\"" '{print $1}' ./test
+  673  awk -F "" '{print $1}' ./test
+  674  awk -F "" '{print $1 $1}' ./test
+  675  awk -F "" 'print $1' ./test
+  676  awk -F "" '{print $1}' ./test
+  677  awk -F "\t" '{print $1}' ./test
+  678  awk -F "\t"" '{print $1}' ./test
+
+
+  679  awk -F "" '{print $1}' ./test
+  680  awk -F " " '{print $0 $1}' ./test
+  681  awk -F " " '{print $1}' ./test
+  682  awk -F " " '{print $1 $0}' ./test
+  683  awk -0F " " '{print $1 $0}' ./test
+  684  awk -vF " " '{print $1 $0}' ./test
+  685  awk -vOFS " " '{print $1 $0}' ./test
+  686  awk -OFS " " '{print $1 $0}' ./test
+  687  awk -FS " " '{print $1 $0}' ./test
+  688  ls
+  689  more te
+  690  more test 
+  691  awk '//{print $1 $2}' test
+  692  awk '//{print $1 $1}' test
+  693  awk '//{print $1 $0}' test
+  694  awk '//{print $0}' test
+  695  flask --version
+  696  vi requirements.txt 
+  697  vi requirements.txt 
+  698  ls
+  699  ll
+  700  clear
+  701  ls
+  702  more passive_app.py 
+  703  clear
+  704  ls
+  705  python passive_app.py 
+  706  python passive_app.py 
+  707  docker ps
+  708  docker kil 43a704bb1886
+  709  docker kill 43a704bb1886
+  710  clear
+  711  ls
+  712  ll
+  713  python passive_app.py 
+  714  python passive_app.py 
+  715  python passive_app.py 
+  716  python passive_app.py 
+  717  python passive_app.py 
+  718  python passive_app.py 
+  719  python passive_app.py 
+  720  python passive_app.py 
+  721  python passive_app.py 
+  722  python passive_app.py 
+  723  python passive_app.py 
+  724  python passive_app.py 
+  725  python passive_app.py 
+  726  python passive_app.py 
+  727  python passive_app.py 
+  728  python test_dict.py 
+  729  python test_dict.py 
+  730  python test_dict.py 
+  731  python test_dict.py 
+  732  python test_dict.py 
+  733  python test_dict.py 
+  734  python test_dict.py 
+  735  python passive_app.py 
+  736  python passive_app.py 
+  737  python passive_app.py 
+  738  python passive_app.py 
+  739  python passive_app.py 
+  740  python passive_app.py 
+  741  python passive_app.py 
+  742  python passive_app.py 
+  743  python passive_app.py 
+  744  python passive_app.py 
+  745  python passive_app.py 
+  746  python passive_app.py 
+  747  ls
+  748  python app.py
+  749  python app.py
+  750  clear
+  751  python app.py 
+  752  python app.py 
+  753  python app.py 
+  754  python app.py 
+  755  python app.py 
+  756  python app.py 
+  757  python app.py 
+  758  python app.py 
+  759  python app.py 
+  760  python app.py 
+  761  python app.py 
+  762  python app.py 
+  763  python app.py 
+  764  python app.py 
+  765  python app.py 
+  766  ls
+  767  history > hist

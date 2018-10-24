@@ -1,2 +1,0 @@
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-43a704bb1886        passive_app:v6      "python passive_app.…"   8 minutes ago       Up 8 minutes        0.0.0.0:5000->5000/tcp   sad_cray
