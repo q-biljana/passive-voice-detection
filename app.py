@@ -19,9 +19,8 @@ def passive_api(lang_id):
 		store_id = find_segment_id(request_body)
 		store_response = [] 
 		for a in store_text:
-			print(check_passive(a))
-			if type(check_passive(a)) is str: 
-				store_response.append(a)
+			if isinstance(check_passive(a), str):
+				store_response.append(check_passive(a))
 			else:
 				resp=[]
 				for b in range(len(check_passive(a))):
@@ -29,7 +28,6 @@ def passive_api(lang_id):
 					
 				store_response.append(resp)
 
-		print("\t", store_response)
 		resp_dict = dict(zip(store_id, store_response))
 		return jsonify(resp_dict) 
 	else:
