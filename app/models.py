@@ -19,7 +19,8 @@ def check_passive(input_str):
 	if not any(passive_loc):
 		return "no passive voice in text"
 	else:
-		return "passive voice at location: ", passive_loc #, beginning, end
+		return passive_loc 
+
 
 def find_segment_id(dictionary): 
 	"""	
@@ -82,11 +83,6 @@ def find_nth(haystack, needle, n):
         start = haystack.find(needle, start+len(needle))
         n -= 1
     return start, start +len(needle)
-
-def position_of_char(s,txt):
-	#txt.find(s)
-	a = re.search(r'\b'+s+'\b', txt)
-	return int(a.start()), int(a.end())
 
 
 
