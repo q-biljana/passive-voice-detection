@@ -13,13 +13,9 @@ def check_passive(input_str):
 		imports NLP function analyze_text which checks for passive voice  
 	"""
 	original_txt, data, metrics, tokens = analyze_text(input_str)
-	print("check_passive, original txt" , original_txt)
-	print("and tokens, ", tokens)
 	test_s = "".join(original_txt)
-	#print ("dummy approach -- ", test_s)
-	#print (list(test_s)[:12])
 
-	passive_loc = loc_of_passive(original_txt, data)
+	passive_loc = loc_of_passive(original_txt, tokens, data)
 	if not any(passive_loc):
 		return "no passive voice in text"
 	else:
@@ -51,37 +47,41 @@ def find_text(key, dictionary):
 				for result in find_text(key, d):
 					yield result
 
-def loc_of_passive(org_txt, dictionary):
+def loc_of_passive(org_txt, tokens, dictionary):
 	"""
 		returns the location of passive voice when present in tokenized segment
 	"""
 	passive_loc = []
-	print("yo. ", dictionary['passive_voice_cases'])
 	#return a list of indexes for passive voice
-	c = [i for i, n in enumerate(dictionary['passive_voice_cases']) if n is not None]
+	c = [(i,n) for i, n in enumerate(dictionary['passive_voice_cases']) if n is not None]
 	# return the words that are passive
-	print("original text ", org_txt)
-	words = [ org_txt[a] for a in c]
-	sentence = " ".join(words)
-	print(sentence)
+	words = [ (tokens[a], num) for a, num in c]
 
-	for word in words:
-		start_index = sentence.find(word) #original text
-		end_index = start_index + len(word)
-		print (start_index, end_index)
-		passive_loc.append((start_index, end_index))
-	print (passive_loc)
+	unique = []
+	for word, num in words:
+		#if first occurance
+		if word not in unique:
+			start_ix = org_txt.find(word) 
+			end_ix = start_ix + len(word)
+			unique.append(word)
+			passive_loc.append((start_ix, end_ix))
+		# if not first occurance
+		else:
+			count = unique.count(word)+1
+			start_ix, end_ix = find_nth(org_txt, word,count)
+			unique.append(word)
+			passive_loc.append((start_ix, end_ix))
+
 	return passive_loc
 
-	#for i in range(len(dictionary['passive_voice_cases'])): 
 
-
-
-	# 	if dictionary['passive_voice_cases'][i] is not None: 
-	# 		passive_loc.append(1)
-	# 	else:
-	# 		passive_loc.append(None)
-	# return passive_loc 
+def find_nth(haystack, needle, n):
+	# find the n'th iteration of substring "needle" in string "haystack" 
+    start = haystack.find(needle)
+    while start >= 0 and n > 1:
+        start = haystack.find(needle, start+len(needle))
+        n -= 1
+    return start, start +len(needle)
 
 def position_of_char(s,txt):
 	#txt.find(s)
