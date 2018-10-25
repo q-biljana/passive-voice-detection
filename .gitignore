@@ -1,4 +1,4 @@
 ## don't track the content of these folders
 bb_version/
-
+.ipynb_checkpoints
 
