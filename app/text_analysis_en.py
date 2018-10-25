@@ -143,4 +143,4 @@ def analyze_text(json_content):
         metrics['passive_voice_ratio'] = 0
 
 
-    return original_text, data, metrics
+    return original_text, data, metrics, tokens
