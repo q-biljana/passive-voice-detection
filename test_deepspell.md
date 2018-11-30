@@ -6,7 +6,7 @@ Project structure looks like:
 │   ├── __init__.py              # Table of contents
 │   ├── cloudml-gpu.yaml         # Specify number and type of machines used
 │   ├── keras_spell.py           # Deep-spell model & output
-|   ├── credential.json
+|   ├── credential.json          # Google Credentials; authentication keys
 ├── gcloud.sh                    # Script starting Cloud training
 ├── requirements.txt       # Requirements for local training
 ├── setup.py               # Config for Cloud training
