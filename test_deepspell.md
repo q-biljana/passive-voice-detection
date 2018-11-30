@@ -2,7 +2,7 @@ Project structure looks like:
 ```
 ├── logs                   # Training logs
 ├── models                 # Trained models
-├── trainer                # Source for Cloud ML training
+├── ** trainer **               # Source for Cloud ML training
 │   ├── __init__.py              # Table of contents
 │   ├── cloudml-gpu.yaml         # Specify number and type of machines used
 │   ├── keras_spell.py           # Miscellaneous information
